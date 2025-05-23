@@ -1,102 +1,108 @@
 /* General Body / Layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', 'Inter', Arial, sans-serif; /* Updated font stack */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #1A1A1A; /* Dark background */
+    color: #E0E0E0; /* Light general text */
     line-height: 1.6;
 }
 
-/* Main container for centering content - assuming content is within <main> */
+/* Main container for centering content */
 main {
-    max-width: 960px;
-    margin: 20px auto; /* Added top/bottom margin for spacing from potential header/footer */
-    padding: 0 20px; /* Padding for content within the main area */
+    max-width: 1200px; /* Updated max-width */
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
-/* Sections (header, section, footer) */
-header, section, footer {
-    padding: 20px 0; /* Vertical padding */
-    margin-bottom: 20px; /* Space below each section */
-    background-color: #fff; /* Give sections a white background to stand out from body */
-    border-radius: 5px; /* Slightly rounded corners for sections */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* A subtle shadow for depth */
+/* Sections (header, section) */
+header, section {
+    padding: 20px 0;
+    margin-bottom: 20px;
+    background-color: transparent; /* Transparent background */
+    border-radius: 5px; /* Kept border-radius */
+    /* box-shadow: removed */
 }
 
-/* Specific padding for sections if they directly contain text that needs it, 
-   otherwise, the padding on 'main' or direct children handles it */
+/* Specific padding for sections if they directly contain text that needs it */
 section#hero, section#features, section#cta {
     padding: 20px; /* Ensure padding inside the section content */
+    background-color: #2B2B2B; /* Giving individual sections a slightly different dark background */
+    border-radius: 5px; /* Ensure these also have the radius */
+    margin-bottom: 20px; /* Ensure spacing between these distinct blocks */
 }
 
+/* Footer Specifics */
 footer {
+    padding: 20px 0; /* Consistent padding */
+    margin-bottom: 0; /* Footer is last, no margin-bottom needed */
+    margin-top: 30px;
+    background-color: #222; /* Distinct dark shade for footer */
+    color: #AAA; /* Muted light color for footer text */
     text-align: center;
-    padding: 20px;
-    margin-top: 30px; /* More margin above the footer */
-    background-color: #333;
-    color: #fff;
+    border-radius: 5px; /* Kept border-radius */
 }
 
 /* Typography */
 h1, h2, h3 {
-    color: #333;
+    color: #E0E0E0; /* Light color for headings */
     margin-bottom: 0.75em;
     text-align: center;
 }
 
 h1 {
-    font-size: 2.5em; /* Example: 40px if base is 16px */
+    font-size: 2.5em;
 }
 
 h2 {
-    font-size: 2em;   /* Example: 32px */
-    margin-top: 0; /* Remove default top margin for h2 if it's the first element in a section */
+    font-size: 2em;
+    margin-top: 0;
 }
 
 h3 {
-    font-size: 1.5em; /* Example: 24px */
+    font-size: 1.5em;
 }
 
 p {
-    font-size: 1em;   /* Example: 16px */
+    font-size: 1em;
     margin-bottom: 1em;
+    /* Color inherited from body */
 }
 
-/* Features List Styling (if needed for better presentation) */
+/* Features List Styling */
 #features ul {
     list-style: none;
     padding: 0;
 }
 
 #features li {
-    background-color: #f9f9f9; /* Light background for each feature item */
-    border: 1px solid #eee;
+    background-color: #2B2B2B; /* Dark background for feature items */
+    border: 1px solid #444; /* Darker border */
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 4px;
 }
 
 #features li h3 {
-    font-size: 1.2em; /* Slightly smaller h3 for feature items */
-    text-align: left; /* Align feature titles to the left */
-    color: #555;
+    font-size: 1.2em;
+    text-align: left;
+    color: #DDD; /* Lighter color for feature titles */
 }
 
 /* Button Styling */
 #cta button {
-    display: block; /* Make button a block to center it with margin auto */
-    margin: 20px auto 0; /* Top margin, auto for horizontal centering */
-    background-color: #007bff;
-    color: white;
+    display: block;
+    margin: 20px auto 0;
+    background-color: #00AEEF; /* Accent color */
+    color: #FFF; /* White text for contrast */
     padding: 12px 25px;
-    border: none;
+    border: none; /* Ensure no border */
     border-radius: 5px;
     font-size: 1.1em;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease;
 }
 
 #cta button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0095CC; /* Slightly darker shade of accent for hover */
 }
