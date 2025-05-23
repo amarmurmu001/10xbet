@@ -8,14 +8,15 @@ body {
     line-height: 1.6;
 }
 
-/* Main container for centering content */
+/* Main container for centering content - This is now effectively the content area to the right of the sidebar */
 main {
-    max-width: 1200px; /* Updated max-width */
-    margin: 20px auto;
-    padding: 0 20px;
+    max-width: 1200px; /* Max width of the content block itself */
+    margin: 20px auto; /* Original centering for the content block */
+    padding: 0 20px; /* Original padding for content within the block */
+    /* These will be adjusted by appended styles below for sidebar layout */
 }
 
-/* Sections (header, section) */
+/* Sections (header, section) - Original rules, header will be overridden */
 header, section {
     padding: 20px 0;
     margin-bottom: 20px;
@@ -32,7 +33,7 @@ section#hero, section#features, section#cta {
     margin-bottom: 20px; /* Ensure spacing between these distinct blocks */
 }
 
-/* Footer Specifics */
+/* Footer Specifics - Original rules, will be adjusted by appended styles */
 footer {
     padding: 20px 0; /* Consistent padding */
     margin-bottom: 0; /* Footer is last, no margin-bottom needed */
@@ -105,4 +106,131 @@ p {
 
 #cta button:hover {
     background-color: #0095CC; /* Slightly darker shade of accent for hover */
+}
+
+/* --- Appended Styles for Navigation, Sidebar, Main Content --- */
+
+/* Header and Navigation Bar */
+header {
+    background-color: #1F1F1F; /* Dark background for header */
+    padding: 0; /* Reset padding, nav will handle its own */
+    margin-bottom: 0; /* Reset margin */
+    position: sticky; /* Make header sticky */
+    top: 0;
+    left: 0; /* Ensure it spans full width for sticky */
+    right: 0; /* Ensure it spans full width for sticky */
+    z-index: 1000; /* Ensure it's above other content */
+    /* width: 100%; implicitly by block and sticky behavior across left/right 0 */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Padding inside the nav bar */
+    max-width: 1200px; /* Centering nav content within the full-width header */
+    margin: auto; /* Center the nav content if header is full width */
+}
+
+.main-nav .logo {
+    color: #00AEEF; /* Accent color */
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav .nav-links li {
+    margin-left: 25px; /* Spacing between nav items */
+}
+
+.main-nav .nav-links a {
+    color: #E0E0E0; /* Light text */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-links a:hover {
+    color: #00AEEF; /* Accent color on hover */
+}
+
+/* Sidebar */
+#sidebar {
+    width: 220px;
+    background-color: #1F1F1F; /* Consistent dark background */
+    color: #E0E0E0;
+    padding: 20px; /* General padding */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Stays in place */
+    top: 0; 
+    left: 0;
+    overflow-y: auto; /* Scroll for overflow */
+    z-index: 900; /* Below header but above main content */
+    /* Assuming header height around 50-60px. Add padding-top to push content down. */
+    /* The actual height of the header can be dynamic, this is a common challenge. */
+    /* For simplicity, we assume header height is roughly 60px for padding-top. */
+    padding-top: 70px; 
+}
+
+#sidebar .sidebar-title {
+    font-size: 1.2em;
+    color: #00AEEF; /* Accent color */
+    margin-top: 0; /* Remove margin if padding-top is handling space from header */
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+}
+
+#sidebar .sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar .sidebar-links li a {
+    display: block;
+    color: #CCC;
+    text-decoration: none;
+    padding: 10px 5px; 
+    transition: color 0.3s ease, padding-left 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+#sidebar .sidebar-links li a:hover {
+    color: #00AEEF; 
+    background-color: #2c2c2c; 
+    padding-left: 10px; 
+}
+
+#sidebar .sidebar-links li.separator {
+    height: 1px;
+    background-color: #444;
+    margin: 10px 0;
+}
+
+/* Main Content Adjustment */
+main {
+    margin-left: 220px; /* Same as sidebar width */
+    padding: 20px; /* Padding for the content area */
+    /* max-width: 1200px; from original rule still applies to the content block */
+    /* margin: 20px auto; The 'auto' for left/right is effectively overridden by margin-left. */
+    /* Top margin of 20px will be from main's own margin-top (if sticky header doesn't cover) */
+    /* or from padding-top if header is part of flow. */
+    /* Let's ensure main content is pushed down if header is sticky and not fixed height */
+    padding-top: 80px; /* Approximate header height + some space */
+}
+
+
+/* Footer adjustment if sidebar is present */
+footer {
+    margin-left: 220px; /* Same as sidebar width */
+    /* Original padding: 20px 0; will apply within this new flowed box */
+    /* Original background-color: #222; color: #AAA; text-align: center; border-radius: 5px; are kept */
 }
