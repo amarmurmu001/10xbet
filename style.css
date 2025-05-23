@@ -1,0 +1,102 @@
+/* General Body / Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main container for centering content - assuming content is within <main> */
+main {
+    max-width: 960px;
+    margin: 20px auto; /* Added top/bottom margin for spacing from potential header/footer */
+    padding: 0 20px; /* Padding for content within the main area */
+}
+
+/* Sections (header, section, footer) */
+header, section, footer {
+    padding: 20px 0; /* Vertical padding */
+    margin-bottom: 20px; /* Space below each section */
+    background-color: #fff; /* Give sections a white background to stand out from body */
+    border-radius: 5px; /* Slightly rounded corners for sections */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* A subtle shadow for depth */
+}
+
+/* Specific padding for sections if they directly contain text that needs it, 
+   otherwise, the padding on 'main' or direct children handles it */
+section#hero, section#features, section#cta {
+    padding: 20px; /* Ensure padding inside the section content */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px; /* More margin above the footer */
+    background-color: #333;
+    color: #fff;
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 0.75em;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em; /* Example: 40px if base is 16px */
+}
+
+h2 {
+    font-size: 2em;   /* Example: 32px */
+    margin-top: 0; /* Remove default top margin for h2 if it's the first element in a section */
+}
+
+h3 {
+    font-size: 1.5em; /* Example: 24px */
+}
+
+p {
+    font-size: 1em;   /* Example: 16px */
+    margin-bottom: 1em;
+}
+
+/* Features List Styling (if needed for better presentation) */
+#features ul {
+    list-style: none;
+    padding: 0;
+}
+
+#features li {
+    background-color: #f9f9f9; /* Light background for each feature item */
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+#features li h3 {
+    font-size: 1.2em; /* Slightly smaller h3 for feature items */
+    text-align: left; /* Align feature titles to the left */
+    color: #555;
+}
+
+/* Button Styling */
+#cta button {
+    display: block; /* Make button a block to center it with margin auto */
+    margin: 20px auto 0; /* Top margin, auto for horizontal centering */
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+#cta button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
