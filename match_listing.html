@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Matches - CricketBet Pro</title>
+    <link rel="stylesheet" href="match_listing.css">
+</head>
+<body>
+
+    <div class="match-listing-container">
+        <!-- Tabs Section -->
+        <div class="tabs-section">
+            <button class="tab-button active" id="tab-upcoming">Upcoming Matches</button>
+            <button class="tab-button" id="tab-live">Live Matches</button>
+        </div>
+
+        <!-- Filter Bar Area (Conceptual) -->
+        <div class="filter-bar-area">
+            <p>Filter by League: <span class="filter-placeholder">[League Dropdown Placeholder]</span> | Filter by Date: <span class="filter-placeholder">[Date Picker Placeholder]</span></p>
+        </div>
+
+        <!-- Match Cards Grid -->
+        <div class="match-cards-grid">
+
+            <!-- Sample Match Card 1: Upcoming Match -->
+            <div class="match-card upcoming-match">
+                <div class="card-top-section">
+                    <p class="league-name">Indian Premier League</p>
+                    <p class="match-time">19:30 PM - Oct 26</p>
+                </div>
+                <div class="card-middle-section">
+                    <!-- Team A Logo -->
+                    <h3 class="team-name">Royal Challengers Bengaluru</h3>
+                    <p class="match-center-text">vs</p>
+                    <h3 class="team-name">Chennai Super Kings</h3>
+                    <!-- Team B Logo -->
+                </div>
+                <div class="card-bottom-section">
+                    <p class="odds-market-label">MATCH WINNER</p>
+                    <div class="odds-boxes-container">
+                        <div class="odd-box">
+                            <span class="outcome-name">Royal Challengers Bengaluru</span>
+                            <span class="odd-value">1.85</span>
+                        </div>
+                        <div class="odd-box">
+                            <span class="outcome-name">Draw</span>
+                            <span class="odd-value">15.00</span>
+                        </div>
+                        <div class="odd-box">
+                            <span class="outcome-name">Chennai Super Kings</span>
+                            <span class="odd-value">2.10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer-section">
+                    <a href="#" class="more-markets-link">+150 Bets</a>
+                </div>
+            </div>
+
+            <!-- Sample Match Card 2: Live Match -->
+            <div class="match-card live-match">
+                <div class="card-top-section">
+                    <p class="league-name">Big Bash League</p>
+                    <p class="match-status">LIVE <span class="live-indicator"></span></p> 
+                </div>
+                <div class="card-middle-section">
+                    <!-- Team A Logo -->
+                    <h3 class="team-name">Perth Scorchers</h3>
+                    <p class="match-center-text live-score">120/2 (15.3 ov)</p>
+                    <h3 class="team-name">Sydney Sixers</h3>
+                    <!-- Team B Logo -->
+                    <p class="live-match-info">Sydney Sixers need 85 runs from 27 balls.</p>
+                </div>
+                <div class="card-bottom-section">
+                    <p class="odds-market-label">MATCH WINNER (LIVE)</p>
+                    <div class="odds-boxes-container">
+                        <div class="odd-box">
+                            <span class="outcome-name">Perth Scorchers</span>
+                            <span class="odd-value">1.30</span>
+                        </div>
+                        <div class="odd-box">
+                            <span class="outcome-name">Sydney Sixers</span>
+                            <span class="odd-value">3.50</span>
+                        </div>
+                         <div class="odd-box disabled"> <!-- Example of a disabled/suspended odd -->
+                            <span class="outcome-name">Draw</span>
+                            <span class="odd-value">SUSPENDED</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer-section">
+                    <a href="#" class="more-markets-link">+85 Bets</a>
+                </div>
+            </div>
+            
+            <!-- More match cards would go here -->
+
+        </div> <!-- .match-cards-grid -->
+
+    </div> <!-- .match-listing-container -->
+
+</body>
+</html>
