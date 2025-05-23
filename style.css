@@ -26,12 +26,21 @@ header, section {
 }
 
 /* Specific padding for sections if they directly contain text that needs it */
-section#hero, section#features, section#cta {
-    padding: 20px; /* Ensure padding inside the section content */
-    background-color: #2B2B2B; /* Giving individual sections a slightly different dark background */
-    border-radius: 5px; /* Ensure these also have the radius */
-    margin-bottom: 20px; /* Ensure spacing between these distinct blocks */
+section#hero { /* Hero gets special background */
+    padding: 40px 20px; /* More padding for hero */
+    background: radial-gradient(ellipse at center, #301A4B 0%, #1A1A1A 70%);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center; /* Ensure content is centered */
 }
+
+section#features, section#cta { /* Other specific sections */
+    padding: 20px;
+    background-color: #2B2B2B; /* Giving individual sections a slightly different dark background */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
 
 /* Footer Specifics - Original rules, will be adjusted by appended styles */
 footer {
@@ -52,43 +61,89 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.5em; /* Default h1 size */
 }
+/* Hero Section H1 */
+section#hero h1 {
+    font-size: 3.5em; /* Increased font-size */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Added text-shadow */
+    color: #FFFFFF; /* White color */
+    margin-bottom: 0.5em; /* Adjusted margin */
+}
+
 
 h2 {
     font-size: 2em;
     margin-top: 0;
 }
+/* Features Section H2 */
+section#features h2 {
+    color: #00AEEF; /* Accent color */
+}
+
 
 h3 {
     font-size: 1.5em;
 }
+/* CTA Section H3 */
+section#cta h3 {
+    color: #00AEEF; /* Accent color */
+    margin-bottom: 1em; /* More space before button */
+}
+
 
 p {
     font-size: 1em;
     margin-bottom: 1em;
     /* Color inherited from body */
 }
+/* Hero Section P */
+section#hero p {
+    font-size: 1.2em; /* Increased font-size */
+    color: #E0E0E0; /* Ensured good contrast */
+    max-width: 600px; /* Constrain width for readability */
+    margin: 0 auto 1em auto; /* Center paragraph */
+}
+
 
 /* Features List Styling */
 #features ul {
     list-style: none;
     padding: 0;
+    display: grid; /* Using grid for better alignment if needed */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 20px;
 }
 
 #features li {
     background-color: #2B2B2B; /* Dark background for feature items */
     border: 1px solid #444; /* Darker border */
-    padding: 15px;
-    margin-bottom: 10px;
+    padding: 25px; /* Increased padding */
+    margin-bottom: 10px; /* Kept margin, though gap handles grid spacing */
     border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Added box-shadow */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transition */
+}
+
+#features li:hover {
+    transform: translateY(-3px); /* Added hover effect */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Enhanced shadow on hover */
 }
 
 #features li h3 {
     font-size: 1.2em;
     text-align: left;
     color: #DDD; /* Lighter color for feature titles */
+    display: flex; /* For icon alignment */
+    align-items: center; /* For icon alignment */
 }
+
+/* Icon Placeholders */
+#features li:nth-child(1) h3::before { content: "\1F3CF"; /* Cricket */ margin-right: 10px; color: #00AEEF; font-size: 1.2em; }
+#features li:nth-child(2) h3::before { content: "\1F4C8"; /* Chart/Odds */ margin-right: 10px; color: #00AEEF; font-size: 1.2em; }
+#features li:nth-child(3) h3::before { content: "\1F4DD"; /* Scroll/Betslip */ margin-right: 10px; color: #00AEEF; font-size: 1.2em; }
+#features li:nth-child(4) h3::before { content: "\1F512"; /* Lock/Secure */ margin-right: 10px; color: #00AEEF; font-size: 1.2em; }
+
 
 /* Button Styling */
 #cta button {
@@ -101,11 +156,15 @@ p {
     border-radius: 5px;
     font-size: 1.1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to transition */
+    text-transform: uppercase; /* Added for punch */
+    font-weight: bold; /* Added for punch */
 }
 
-#cta button:hover {
+#cta button:hover,
+#cta button:focus {
     background-color: #0095CC; /* Slightly darker shade of accent for hover */
+    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.4); /* Subtle glow/shadow on hover/focus */
 }
 
 /* --- Appended Styles for Navigation, Sidebar, Main Content --- */
