@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 /* 1. Body/Page Defaults */
 body {
     font-family: 'Roboto', 'Inter', Arial, sans-serif;
@@ -8,11 +12,65 @@ body {
     line-height: 1.6;
 }
 
-/* 2. Main Container */
+/* --- Styles for Header (from style.css, adapted for match_listing.html) --- */
+/* This assumes match_listing.html now has a <header><nav class="main-nav">...</nav></header> structure */
+header {
+    background-color: #1F1F1F;
+    padding: 0;
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
+    position: relative; /* For mobile menu positioning */
+}
+
+.main-nav .logo {
+    color: #00AEEF;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-nav .nav-links { /* Desktop nav links */
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav .nav-links li {
+    margin-left: 25px;
+}
+
+.main-nav .nav-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-links a:hover {
+    color: #00AEEF;
+}
+
+
+/* 2. Main Container for match_listing.html */
 .match-listing-container {
     max-width: 1200px;
-    margin: 20px auto; /* Centering and some top/bottom margin */
+    margin: 0 auto; /* Removed top margin, padding-top will handle header space */
     padding: 20px;
+    padding-top: 80px; /* Space for sticky header, adjust if header height differs */
 }
 
 /* 3. Tabs Section */
@@ -255,13 +313,89 @@ body {
     text-decoration: underline;
 }
 
-/* Placeholder for team logos if they were images */
-/*
-.team-logo {
-    width: 40px;
-    height: 40px;
-    background-color: #444; // Placeholder
-    border-radius: 50%;
-    display: inline-block; // Or use flex within .card-middle-section
+/* --- Universal Responsive Styles (from style.css, relevant parts) --- */
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
 }
-*/
+
+.hamburger-icon-bar {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background-color: #E0E0E0;
+    margin: 4px 0;
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Media Queries for match_listing.css --- */
+@media (max-width: 768px) {
+    /* Header and Navigation for match_listing.html */
+    .main-nav .nav-links { /* This is the UL element, styled as the mobile menu */
+        display: flex; /* Show it, styled as mobile menu */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Position below the .main-nav container */
+        left: 0;
+        right: 0;
+        background-color: #1F1F1F; /* Dark background */
+        padding: 0;
+        margin: 0;
+        z-index: 1000;
+        border-top: 1px solid #333;
+        /* Assuming JS would toggle visibility. For CSS-only demo of appearance, this is styled as if visible. */
+    }
+
+    .main-nav .nav-links li {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-nav .nav-links a {
+        display: block;
+        padding: 12px 20px;
+        color: #E0E0E0;
+        text-decoration: none;
+        border-bottom: 1px solid #333;
+    }
+    .main-nav .nav-links a:hover {
+        background-color: #00AEEF;
+        color: #1A1A1A;
+    }
+
+    .main-nav .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+    
+    /* Main Content Adjustment for match_listing.html */
+    .match-listing-container {
+        padding-top: 70px; /* Adjust for sticky header if its height changes on mobile */
+        margin: 0 auto; /* Ensure it's still centered if there's any horizontal padding */
+    }
+
+    /* Similar to style.css, this would be the default state for mobile if JS is used for toggling */
+    header .main-nav .nav-links {
+      display: none; /* Default state on mobile: hidden */
+      /* Keep other mobile styles for when it's shown */
+      flex-direction: column;
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      right: 0;
+      background-color: #1F1F1F;
+      padding: 0; 
+      margin: 0;
+      z-index: 1000; 
+      border-top: 1px solid #333;
+    }
+    /* Conceptual class for JS toggle (not used in this CSS-only styling of open menu)
+    .main-nav .nav-links.mobile-menu-active {
+        display: flex;
+    }
+    */
+}
